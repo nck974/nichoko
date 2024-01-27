@@ -1,0 +1,38 @@
+/* Define a set of allowed color gradients to be used across the whole site*/
+$gradient-angle: 120deg;
+
+.bg-1 {
+    background: linear-gradient(#{$gradient-angle}, #659DBD, #659dbd5d);
+}
+
+.bg-2 {
+    background: linear-gradient(#{$gradient-angle}, #DAAD86, #daad866c);
+}
+
+.bg-3 {
+    background: linear-gradient(#{$gradient-angle}, #BC986A, #bc986a6e);
+}
+
+.bg-4 {
+    background: linear-gradient(#{$gradient-angle}, #FBEEC1, #fbeec18a);
+}
+
+.bg-5 {
+    background: linear-gradient(#{$gradient-angle}, #8D8741, #8d874194);
+}
+
+.bg-6 {
+    background: linear-gradient(#{$gradient-angle}, #33691e, #1b4d0e);
+}
+
+.bg-7 {
+    background: linear-gradient(#{$gradient-angle}, #fbc02d, #c79a00);
+}
+
+.bg-8 {
+    background: linear-gradient(#{$gradient-angle}, #e65100, #ac1900);
+}
+
+.bg-9 {
+    background: linear-gradient(#{$gradient-angle}, #d84315, #a83300);
+}

@@ -1,4 +1,5 @@
 export interface PageContent {
+    id: number,
     title: string,
     body: string,
     clickText?: string,

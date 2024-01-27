@@ -1,28 +1,31 @@
-<div #page *ngFor="let pageContent of pagesContent; let page = index"
-    [class]="'container hidden bg-' + (page + 1)">
+@for (pageContent of pagesContent; track pageContent.id; let index=$index) {
+<div #page class="container hidden bg-{{index+1}}">
 
-    <!-- Image -->
-    <img class="background-image hidden-image" *ngIf="pageContent.image"
+    <!-- Background Image -->
+    @if(pageContent.image){
+    <img id="backgroundImage-{{index}}" class="background-image hidden-image"
         [src]="pageContent.image"
         alt="{{pageContent.altNameImage}}">
+    }
 
     <!-- Text content -->
-    <div class="page-content">
+    <div id="textContent-{{index}}" class="page-content">
 
         <h1>{{pageContent.title}}</h1>
         <h2>{{pageContent.body}}</h2>
 
-        <div class="links"
-            *ngIf="pageContent.clickText && pageContent.altNameImage">
+        @if (pageContent.clickText && pageContent.altNameImage){
+        <div class="links">
             <a href="{{pageContent.link}}">{{pageContent.clickText}}</a>
         </div>
+        }
 
     </div>
 
     <!-- Next button -->
-    <div class="nav hidden">
-        <button #next class="btn"
-            (click)="clickNext(page)"></button>
+    <div id="nextButtonWrapper-{{index}}" class="nav hidden">
+        <app-next-button [onClick]="onClickNext.bind(this, index)"></app-next-button>
     </div>
 
 </div>
+}
