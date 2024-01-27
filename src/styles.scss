@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #222;
+    color: #fff;
+    font-family: 'apercu';
+    margin: 0;
+    padding: 0;
+}
+
+// Disable automatic paddings that affect the full size pages
+* {
+    box-sizing: border-box;
+}

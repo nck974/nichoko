@@ -1,1 +1,28 @@
-<p>home works!</p>
+<div #page *ngFor="let pageContent of pagesContent; let page = index"
+    [class]="'container hidden bg-' + (page + 1)">
+
+    <!-- Image -->
+    <img class="background-image hidden-image" *ngIf="pageContent.image"
+        [src]="pageContent.image"
+        alt="{{pageContent.altNameImage}}">
+
+    <!-- Text content -->
+    <div class="page-content">
+
+        <h1>{{pageContent.title}}</h1>
+        <h2>{{pageContent.body}}</h2>
+
+        <div class="links"
+            *ngIf="pageContent.clickText && pageContent.altNameImage">
+            <a href="{{pageContent.link}}">{{pageContent.clickText}}</a>
+        </div>
+
+    </div>
+
+    <!-- Next button -->
+    <div class="nav hidden">
+        <button #next class="btn"
+            (click)="clickNext(page)"></button>
+    </div>
+
+</div>

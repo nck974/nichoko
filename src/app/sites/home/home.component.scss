@@ -1,0 +1,184 @@
+$gradient-angle: 120deg;
+
+.bg-1 {
+    background: linear-gradient(#{$gradient-angle}, #659DBD, #659dbd5d);
+}
+
+.bg-2 {
+    background: linear-gradient(#{$gradient-angle}, #DAAD86, #daad866c);
+}
+
+.bg-3 {
+    background: linear-gradient(#{$gradient-angle}, #BC986A, #bc986a6e);
+}
+
+.bg-4 {
+    background: linear-gradient(#{$gradient-angle}, #FBEEC1, #fbeec18a);
+}
+
+.bg-5 {
+    background: linear-gradient(#{$gradient-angle}, #8D8741, #8d874194);
+}
+
+.bg-6 {
+    background: linear-gradient(#{$gradient-angle}, #33691e, #1b4d0e);
+}
+
+.bg-7 {
+    background: linear-gradient(#{$gradient-angle}, #fbc02d, #c79a00);
+}
+
+.bg-8 {
+    background: linear-gradient(#{$gradient-angle}, #e65100, #ac1900);
+}
+
+.bg-9 {
+    background: linear-gradient(#{$gradient-angle}, #d84315, #a83300);
+}
+
+.container {
+    padding: 1.5rem;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: start;
+    overflow: hidden;
+}
+
+.page-content {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 25vh;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.5s 0.5s;
+}
+
+.page-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 1rem;
+}
+
+.page-content h2 {
+    font-size: 1.8em;
+}
+
+.page-content.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.text-white {
+    color: white;
+}
+
+.nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+// Links
+.links a {
+    text-decoration: none;
+    color: white;
+    font-size: 3rem;
+    text-decoration-line: underline;
+    transition: color 0.3s ease-in-out;
+}
+
+.links a:hover {
+    color: #79c7fa;
+}
+
+.links a::before {
+    content: '\2192';
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 1.2em;
+}
+
+.links a::after {
+    content: '\2190';
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 1.2em;
+}
+
+// Image
+.background-image {
+    position: absolute;
+    object-fit: cover;
+    z-index: -1;
+    clip-path: circle(50% at center);
+    background: linear-gradient(transparent 0%, black 100%);
+    transition: opacity 1.5s ease;
+    opacity: 0;
+}
+
+
+.show-image {
+    opacity: 0.3;
+}
+
+// Button
+.btn {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 1px solid #3498db;
+    color: #3498db;
+    cursor: pointer;
+    overflow: hidden;
+    animation: pulse 5s infinite;
+    margin-bottom: 1rem;
+}
+
+.btn:hover {
+    background-color: #ffffff;
+    color: #3498db;
+}
+
+.btn::before,
+.btn::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    margin-top: -10px;
+    margin-left: -8px;
+    border-left: 2px solid #3498db;
+    border-bottom: 2px solid #3498db;
+    transform: rotate(-45deg);
+}
+
+@keyframes pulse {
+
+    0%,
+    50%,
+    100% {
+        opacity: 1;
+    }
+
+    25%,
+    75% {
+        opacity: 0.45;
+    }
+}
