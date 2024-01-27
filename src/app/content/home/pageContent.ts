@@ -32,7 +32,7 @@ export function getHomePageContent(): PageContent[] {
             id: 4,
             title: "Not only software!",
             body: "I also like to keep building outside of the screen on my own if possible.",
-            clickText: "Check some of my other projects",
+            clickText: "Some other projects",
             link: "/projects/diy",
             image: "/assets/images/home/image-3-build.png",
             altNameImage: "Build",

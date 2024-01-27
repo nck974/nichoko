@@ -1,5 +1,5 @@
 @for (pageContent of pagesContent; track pageContent.id; let index=$index) {
-<div #page class="container hidden bg-{{index+1}}">
+<div #page class="full-screen-background hidden bg-{{index+1}}">
 
     <!-- Background Image -->
     @if(pageContent.image){
@@ -9,7 +9,7 @@
     }
 
     <!-- Text content -->
-    <div id="textContent-{{index}}" class="page-content">
+    <div id="textContent-{{index}}" class="text-content">
 
         <h1>{{pageContent.title}}</h1>
         <h2>{{pageContent.body}}</h2>
@@ -23,7 +23,7 @@
     </div>
 
     <!-- Next button -->
-    <div id="nextButtonWrapper-{{index}}" class="nav hidden">
+    <div id="nextButtonWrapper-{{index}}" class="navigation-wrapper hidden">
         <app-next-button [onClick]="onClickNext.bind(this, index)"></app-next-button>
     </div>
 

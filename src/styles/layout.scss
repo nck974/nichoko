@@ -1,0 +1,13 @@
+.full-screen-background {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none !important;
+}

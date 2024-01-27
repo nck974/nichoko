@@ -43,7 +43,7 @@ export class HomeComponent {
   private showBackgroundImage(page: ElementRef<any>, index: number): void {
     const image = page.nativeElement.querySelector(`#backgroundImage-${index}`);
     setTimeout(() => {
-      image?.classList.add('show-image');
+      image?.classList.add('show');
     }, 100);
   }
 
