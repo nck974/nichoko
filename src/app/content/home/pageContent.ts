@@ -6,7 +6,7 @@ export function getHomePageContent(): PageContent[] {
         {
             id: 1,
             title: "Welcome to my page!",
-            body: "If you have arrived here you already know my name 😊, so there is no need to have it here.",
+            body: "If you have arrived here you already know my name 😊, so there is no need to have it here for privacy reasons.",
             image: "/assets/images/home/image-0-cover.png",
             altNameImage: "Cover",
         },
@@ -31,7 +31,7 @@ export function getHomePageContent(): PageContent[] {
         {
             id: 4,
             title: "Not only software!",
-            body: "I also like to keep building outside of the screen on my own if possible.",
+            body: "I also like to keep building outside of the screen.",
             clickText: "Some other projects",
             link: "/projects/diy",
             image: "/assets/images/home/image-3-build.png",
