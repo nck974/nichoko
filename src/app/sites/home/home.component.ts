@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
-import { getHomePageContent } from '../../content/home/pageContent';
+import { getHomePageContent } from '../../content/home/page-content';
 import { PageContent } from '../../model/PageContent';
 import { NextButtonComponent } from '../../shared/components/next-button/next-button.component';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,8 @@ export class HomeComponent {
 
   pagesContent: PageContent[] = getHomePageContent()
   latestLoadedIndex = 0;
+
+  constructor(private router: Router) { }
 
   private showNextButton(index: number, page: ElementRef<any>): void {
     if (!this.pages || index >= this.pages?.length - 1) {
@@ -88,6 +91,13 @@ export class HomeComponent {
 
   onClickNext(index: number): void {
     this.navigateToPage(index + 1);
+  }
+
+  onNavigate(url: string): void {
+    const navigationExtras: NavigationExtras = {
+      preserveFragment: true,
+    };
+    this.router.navigateByUrl(url, navigationExtras);
   }
 
 }

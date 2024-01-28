@@ -3,7 +3,7 @@
 
     <!-- Background Image -->
     @if(pageContent.image){
-    <img id="backgroundImage-{{index}}" class="background-image hidden-image"
+    <img id="backgroundImage-{{index}}" class="background-image"
         [src]="pageContent.image"
         alt="{{pageContent.altNameImage}}">
     }
@@ -11,12 +11,13 @@
     <!-- Text content -->
     <div id="textContent-{{index}}" class="text-content">
 
-        <h1>{{pageContent.title}}</h1>
+        <h1 class="title">{{pageContent.title}}</h1>
         <h2>{{pageContent.body}}</h2>
 
-        @if (pageContent.clickText && pageContent.altNameImage){
+        @if (pageContent.clickText && pageContent.link){
         <div class="links">
-            <a href="{{pageContent.link}}">{{pageContent.clickText}}</a>
+            <a
+                (click)="onNavigate(pageContent.link)">{{pageContent.clickText}}</a>
         </div>
         }
 
@@ -24,7 +25,8 @@
 
     <!-- Next button -->
     <div id="nextButtonWrapper-{{index}}" class="navigation-wrapper hidden">
-        <app-next-button [onClick]="onClickNext.bind(this, index)"></app-next-button>
+        <app-next-button
+            [onClick]="onClickNext.bind(this, index)"></app-next-button>
     </div>
 
 </div>

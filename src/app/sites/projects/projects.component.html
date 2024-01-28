@@ -1,0 +1,48 @@
+<div id="wrapper" class="full-screen-background bg-3">
+
+    @if(backgroundImageUrl){
+    <img #backgroundImage class="background-image show"
+        [src]="backgroundImageUrl"
+        alt="Background image">
+    }
+
+    <div #carouselContainer class="carousel-container solid-border">
+
+        @for(item of carouselItems; track item;){
+        <div #carouselPage class="carousel-item hidden">
+
+            <!-- Title -->
+            <h2 class="title">{{ item.title }}</h2>
+
+            <!-- Screenshots -->
+            @if( item.images){
+            @for(image of item.images; track image; let index = $index){
+            <img class="project-image" [src]="image"
+                alt="Project Image {{index}}">
+            }
+            }
+
+            <!-- Technology  & links-->
+            <div class="tags">
+                @for(tag of item.tags; track tag){
+                <div class="chip">{{ tag }}</div>
+                }
+                @if(item.link && item.linkIcon){
+                <div class="icon-wrapper">
+                    <a [href]="item.link">
+                        <img class="small-icon" [src]="item.linkIcon"
+                            alt="Project">
+                    </a>
+                </div>
+                }
+            </div>
+
+            <!-- Description -->
+            <p [innerHTML]="item.description"></p>
+
+        </div>
+        }
+
+    </div>
+
+</div>
