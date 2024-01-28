@@ -1,0 +1,50 @@
+.carousel-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    margin: 0 20px;
+    max-height: min(1000px, 90vh);
+    max-width: min(800px, 80vh);
+    background-color: #ffffff2b;
+    overflow-x: hidden;
+    transition: all 0.5s 0.5s;
+}
+
+
+.solid-border {
+    border: solid white 1px;
+    border-radius: 5%;
+}
+
+.project-image {
+    max-width: min(80vw, 700px);
+    max-height: min(60vh, 500px);
+    height: auto;
+    margin: 15px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.chip {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    margin: 5px;
+    border-radius: 25px;
+    font-size: 14px;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .solid-border {
+        border-radius: 3%;
+    }
+}

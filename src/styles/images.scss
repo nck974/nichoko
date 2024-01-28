@@ -1,0 +1,11 @@
+.background-image {
+    position: absolute;
+    z-index: -1;
+    clip-path: circle(50% at center);
+    transition: opacity 1.5s ease;
+    opacity: 0;
+}
+
+.background-image.show {
+    opacity: 0.3;
+}
