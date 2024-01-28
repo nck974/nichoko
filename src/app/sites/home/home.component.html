@@ -24,9 +24,9 @@
     </div>
 
     <!-- Next button -->
-    <div id="nextButtonWrapper-{{index}}" class="navigation-wrapper hidden">
+    <div id="nextButtonWrapper-{{index}}" class="navigation-wrapper navigation-wrapper-bottom hidden">
         <app-next-button
-            [onClick]="onClickNext.bind(this, index)"></app-next-button>
+            [onClick]="onClickNext.bind(this, index)" direction="down"></app-next-button>
     </div>
 
 </div>

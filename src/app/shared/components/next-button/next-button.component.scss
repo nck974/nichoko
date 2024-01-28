@@ -27,7 +27,21 @@
     margin-left: -8px;
     border-left: 2px solid #3498db;
     border-bottom: 2px solid #3498db;
+}
+
+.down::after,
+.down::before {
     transform: rotate(-45deg);
+}
+
+.right::after,
+.right::before {
+    transform: rotate(-135deg);
+}
+
+.left::after,
+.left::before {
+    transform: rotate(45deg);
 }
 
 @keyframes pulse {

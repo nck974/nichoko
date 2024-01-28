@@ -9,4 +9,6 @@ import { Component, Input } from '@angular/core';
 })
 export class NextButtonComponent {
   @Input({ required: true }) onClick!: () => void;
+  @Input({ required: true }) direction!: string;
+
 }

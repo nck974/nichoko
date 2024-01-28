@@ -5,11 +5,14 @@
     align-items: center;
     text-align: center;
     padding: 20px;
+    margin: 0 20px;
     max-height: min(1000px, 90vh);
     max-width: min(800px, 80vh);
     background-color: #ffffff2b;
-    overflow: auto;
+    overflow-x: hidden;
+    transition: all 0.5s 0.5s;
 }
+
 
 .solid-border {
     border: solid white 1px;
@@ -17,10 +20,10 @@
 }
 
 .project-image {
-    max-width: 60vw;
+    max-width: min(80vw, 700px);
     max-height: min(60vh, 500px);
     height: auto;
-    margin-bottom: 15px;
+    margin: 15px;
 }
 
 .tags {
@@ -39,13 +42,9 @@
     font-size: 14px;
 }
 
-p {
-    font-size: 16px;
-}
-
 
 @media only screen and (max-width: 767px) {
-    .solid-border{
+    .solid-border {
         border-radius: 3%;
     }
-  }
+}

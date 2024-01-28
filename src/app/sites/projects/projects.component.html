@@ -24,22 +24,37 @@
 
             <!-- Technology  & links-->
             <div class="tags">
-                @for(tag of item.tags; track tag){
-                <div class="chip">{{ tag }}</div>
-                }
                 @if(item.link && item.linkIcon){
                 <div class="icon-wrapper">
-                    <a [href]="item.link">
+                    <a [href]="item.link" target="_blank">
                         <img class="small-icon" [src]="item.linkIcon"
                             alt="Project">
                     </a>
                 </div>
                 }
+                @for(tag of item.tags; track tag){
+                <div class="chip">{{ tag }}</div>
+                }
             </div>
 
             <!-- Description -->
-            <p [innerHTML]="item.description"></p>
+            <p [innerHTML]="item.description" class="text-body"></p>
 
+            <!-- Workflow -->
+            @if(!$first){
+            <div class="navigation-wrapper navigation-wrapper-left">
+                <app-next-button
+                    [onClick]="changePage.bind(this, $index, $index-1)"
+                    direction="left"></app-next-button>
+            </div>
+            }
+            @if(!$last){
+            <div class="navigation-wrapper navigation-wrapper-right">
+                <app-next-button
+                    [onClick]="changePage.bind(this, $index, $index+1)"
+                    direction="right"></app-next-button>
+            </div>
+            }
         </div>
         }
 

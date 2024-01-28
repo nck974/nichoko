@@ -2,3 +2,9 @@
     font-size: clamp(2rem, 5vw, 4rem);
     margin-bottom: 1rem;
 }
+
+.text-body {
+    font-size: clamp(0.75rem, 5vw, 1rem);
+    margin-bottom: 1rem;
+    text-align: left !important;
+}
