@@ -1,6 +1,6 @@
 // Location the navigation buttons
 .navigation-wrapper {
-    position: absolute;
+    position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,4 +23,14 @@
     bottom: 0;
     left: 0;
     right: 0;
+}
+
+@media (min-width: 1400px) {
+    .navigation-wrapper-right {
+        right: 20%;
+    }
+
+    .navigation-wrapper-left {
+        left: 20%;
+    }
 }

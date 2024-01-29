@@ -6,10 +6,12 @@
         alt="Background image">
     }
 
-    <div #carouselContainer class="carousel-container solid-border">
+    <div #carouselContainer id="carouselContainer"
+        class="carousel-container solid-border">
 
         @for(item of carouselItems; track item;){
-        <div #carouselPage class="carousel-item hidden">
+        <div #carouselPage class="carousel-item"
+            [class.hidden]="$index != currentIndex">
 
             <!-- Title -->
             <h2 class="title">{{ item.title }}</h2>
@@ -40,24 +42,25 @@
             <!-- Description -->
             <p [innerHTML]="item.description" class="text-body"></p>
 
-            <!-- Workflow -->
-            @if(!$first){
-            <div class="navigation-wrapper navigation-wrapper-left">
-                <app-next-button
-                    [onClick]="changePage.bind(this, $index, $index-1)"
-                    direction="left"></app-next-button>
-            </div>
-            }
-            @if(!$last){
-            <div class="navigation-wrapper navigation-wrapper-right">
-                <app-next-button
-                    [onClick]="changePage.bind(this, $index, $index+1)"
-                    direction="right"></app-next-button>
-            </div>
-            }
         </div>
         }
 
     </div>
+
+    <!-- Workflow -->
+    @if(currentIndex>0){
+    <div class="navigation-wrapper navigation-wrapper-left">
+        <app-next-button
+            [onClick]="onMoveToPreviousPage.bind(this)"
+            direction="left"></app-next-button>
+    </div>
+    }
+    @if(currentIndex<carouselItems.length-1){
+        <div class="navigation-wrapper navigation-wrapper-right">
+        <app-next-button
+            [onClick]="onMoveToNextPage.bind(this)"
+            direction="right"></app-next-button>
+    </div>
+    }
 
 </div>
