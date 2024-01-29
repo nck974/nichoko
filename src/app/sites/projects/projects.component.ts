@@ -13,13 +13,13 @@ export class ProjectsComponent {
   @ViewChild('carouselContainer') carouselContainer?: ElementRef;
   @ViewChildren('carouselPage') pages?: QueryList<ElementRef>;
 
+  @ViewChild('nextButton') nextButton?: ElementRef;
+  @ViewChild('previousButton') previousButton?: ElementRef;
+
   backgroundImageUrl = "/assets/images/home/image-2-software.png"; // TODO: make configurable
   carouselItems = getSoftwareProjects();
   currentIndex = 0;
 
-  ngAfterViewInit(): void {
-    this.showPage(0)
-  }
 
   private showPage(index: number): void {
     if (index < 0 || (this.pages && index >= this.pages?.length) || !this.pages) {
@@ -37,10 +37,17 @@ export class ProjectsComponent {
     currentPage.nativeElement.classList.add("hidden");
   }
 
-  changePage(currentIndex: number, nextIndex: number): void {
+  private changePage(currentIndex: number, nextIndex: number): void {
     this.hidePage(currentIndex);
     this.showPage(nextIndex);
     this.currentIndex = nextIndex;
   }
 
+  onMoveToNextPage(): void {
+    this.changePage(this.currentIndex, this.currentIndex + 1);
+  }
+
+  onMoveToPreviousPage(): void {
+    this.changePage(this.currentIndex, this.currentIndex - 1);
+  }
 }
