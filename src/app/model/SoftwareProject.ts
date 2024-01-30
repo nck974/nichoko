@@ -1,3 +1,5 @@
+import { Chip } from "./chip";
+
 export interface SoftwareProject {
     id: number,
     title: string,
@@ -6,5 +8,5 @@ export interface SoftwareProject {
     linkIcon?: string,
     images?: string[],
     altNameImages?: string[],
-    tags: string[],
+    tags: Chip[],
 }

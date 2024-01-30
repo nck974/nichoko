@@ -35,7 +35,7 @@
                 </div>
                 }
                 @for(tag of item.tags; track tag){
-                <div class="chip">{{ tag }}</div>
+                <app-chip [color]="tag.color" [name]="tag.name"></app-chip>
                 }
             </div>
 

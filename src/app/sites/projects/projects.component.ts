@@ -1,11 +1,12 @@
 import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { getSoftwareProjects } from '../../content/projects/software';
 import { NextButtonComponent } from '../../shared/components/next-button/next-button.component';
+import { ChipComponent } from '../../shared/components/chip/chip.component';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [NextButtonComponent],
+  imports: [NextButtonComponent, ChipComponent],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
