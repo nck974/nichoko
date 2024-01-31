@@ -6,7 +6,11 @@ export function getSoftwareProjects(): SoftwareProject[] {
         {
             id: 0,
             title: "Compulsive Shopping",
-            images: ["/assets/images/projects/software/compulsive-shopping.png"],
+            images: [
+                "/assets/images/projects/software/compulsive-shopping-1.png",
+                "/assets/images/projects/software/compulsive-shopping-2.png",
+                "/assets/images/projects/software/compulsive-shopping-3.png",
+            ],
             tags: [
                 { color: "#0468D7", name: "Flutter" },
                 { color: "#044a64", name: "SQLite" },

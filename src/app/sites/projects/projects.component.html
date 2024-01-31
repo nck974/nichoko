@@ -18,10 +18,12 @@
 
             <!-- Screenshots -->
             @if( item.images){
-            @for(image of item.images; track image; let index = $index){
-            <img class="project-image" [src]="image"
-                alt="Project Image {{index}}">
-            }
+            <div class="project-image-wrapper">
+                @for(image of item.images; track image; let index = $index){
+                <img class="project-image" [src]="image"
+                    alt="Project Image {{index}}">
+                }
+            </div>
             }
 
             <!-- Technology  & links-->
