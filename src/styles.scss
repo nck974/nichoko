@@ -1,7 +1,7 @@
 body {
     background-color: #222;
     color: #fff;
-    font-family: 'apercu';
+    font-family: 'system-ui', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -17,3 +17,4 @@ body {
 @import './styles/icons';
 @import './styles/navigation';
 @import './styles/texts';
+@import './styles/borders';

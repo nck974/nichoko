@@ -20,8 +20,9 @@
             @if( item.images){
             <div class="project-image-wrapper">
                 @for(image of item.images; track image; let index = $index){
-                <img class="project-image" [src]="image"
-                    alt="Project Image {{index}}">
+                <img class="project-image solid-border show-cursor" [src]="image"
+                    alt="Project Image {{index}}"
+                    (click)="showImage(image)">
                 }
             </div>
             }
@@ -32,7 +33,7 @@
                 <div class="icon-wrapper">
                     <a [href]="item.link" target="_blank">
                         <img class="small-icon" [src]="item.linkIcon"
-                            alt="Project">
+                            alt="source-icon">
                     </a>
                 </div>
                 }
@@ -66,3 +67,10 @@
     }
 
 </div>
+
+<!-- Full screen image -->
+@if(selectedImage){
+<div class="full-size-image-overlay" (click)="hideImage()">
+    <img class="solid-border show-cursor" [src]="selectedImage" alt="Full Size Image">
+</div>
+}

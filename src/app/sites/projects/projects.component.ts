@@ -28,6 +28,8 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   carouselItems = getSoftwareProjects();
   currentIndex = 0;
 
+  selectedImage?: string | null;
+
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -72,5 +74,13 @@ export class ProjectsComponent implements OnInit, OnDestroy {
 
   onMoveToPreviousPage(): void {
     this.changePage(this.currentIndex, this.currentIndex - 1);
+  }
+
+  showImage(image: string): void {
+    this.selectedImage = image;
+  }
+
+  hideImage(): void {
+    this.selectedImage = null;
   }
 }

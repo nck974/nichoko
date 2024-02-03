@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    z-index: 1000;
+    z-index: 100;
     transition: transform 0.3s ease;
 }
 
@@ -23,6 +23,10 @@
     bottom: 0;
     left: 0;
     right: 0;
+}
+
+.show-cursor{
+    cursor: pointer;
 }
 
 @media (min-width: 1400px) {
