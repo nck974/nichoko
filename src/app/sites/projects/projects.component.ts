@@ -1,7 +1,10 @@
-import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { getSoftwareProjects } from '../../content/projects/software';
 import { NextButtonComponent } from '../../shared/components/next-button/next-button.component';
 import { ChipComponent } from '../../shared/components/chip/chip.component';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { getDiyProjects } from '../../content/projects/diy';
 
 @Component({
   selector: 'app-projects',
@@ -10,17 +13,36 @@ import { ChipComponent } from '../../shared/components/chip/chip.component';
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit, OnDestroy {
   @ViewChild('carouselContainer') carouselContainer?: ElementRef;
   @ViewChildren('carouselPage') pages?: QueryList<ElementRef>;
 
   @ViewChild('nextButton') nextButton?: ElementRef;
   @ViewChild('previousButton') previousButton?: ElementRef;
 
-  backgroundImageUrl = "/assets/images/home/image-2-software.png"; // TODO: make configurable
+  urlSubscription?: Subscription;
+  softwareBackgroundImage = "/assets/images/home/image-2-software.png"
+  diyBackgroundImage = "/assets/images/home/image-3-build.png"
+  backgroundImageUrl = this.softwareBackgroundImage;
+
   carouselItems = getSoftwareProjects();
   currentIndex = 0;
 
+  constructor(private route: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this.urlSubscription = this.route.paramMap.subscribe((params) => {
+      const projectType = params.get("projectType");
+      if (projectType && projectType == "diy") {
+        this.backgroundImageUrl = this.diyBackgroundImage;
+        this.carouselItems = getDiyProjects();
+      }
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.urlSubscription?.unsubscribe();
+  }
 
   private showPage(index: number): void {
     if (index < 0 || (this.pages && index >= this.pages?.length) || !this.pages) {

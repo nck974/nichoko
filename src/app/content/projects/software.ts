@@ -1,6 +1,6 @@
-import { SoftwareProject } from "../../model/SoftwareProject";
+import { Project } from "../../model/project";
 
-export function getSoftwareProjects(): SoftwareProject[] {
+export function getSoftwareProjects(): Project[] {
 
     return [
         {
