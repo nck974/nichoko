@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, QueryList, ViewChildren } from '@angular/core';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { getHomePageContent } from '../../content/home/page-content';
 import { PageContent } from '../../model/PageContent';
 import { NextButtonComponent } from '../../shared/components/next-button/next-button.component';
-import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,14 +13,39 @@ import { NavigationExtras, Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit, OnDestroy {
 
   @ViewChildren('page') pages?: QueryList<ElementRef>;
 
   pagesContent: PageContent[] = getHomePageContent()
   latestLoadedIndex = 0;
+  urlSubscription?: Subscription;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  
+  ngOnDestroy(): void {
+    this.urlSubscription?.unsubscribe();
+  }
+
+  ngAfterViewInit(): void {
+    this.urlSubscription = this.activatedRoute.queryParamMap.subscribe((params) => {
+      const indexString = params.get("index");
+      if (!indexString) {
+        this.showPageContent(0);
+        return;
+      }
+      const index = parseInt(indexString);
+      if (index && index > 0 && this.pagesContent && index < this.pagesContent?.length) {
+        // Load all pages until the given index
+        for (let i = 0; i <= index; i++) {
+          this.navigateToPage(i);
+        }
+      } else {
+        this.showPageContent(0);
+      }
+    })
+
+  }
 
   private showNextButton(index: number, page: ElementRef<any>): void {
     if (!this.pages || index >= this.pages?.length - 1) {
@@ -78,16 +104,17 @@ export class HomeComponent {
     currentPage?.nativeElement.scrollIntoView({ behavior: 'smooth' });
 
     this.latestLoadedIndex = newIndex;
+    this.storePositionInUrl(newIndex)
+
   }
 
-
-  /**
-   * Show the first animation when the page is loaded
-   */
-  ngAfterViewInit(): void {
-    this.showPageContent(0);
+  private storePositionInUrl(index: number): void {
+    this.router.navigate([], {
+      relativeTo: this.activatedRoute,
+      queryParams: { index: index },
+      queryParamsHandling: 'merge',
+    });
   }
-
 
   onClickNext(index: number): void {
     this.navigateToPage(index + 1);
