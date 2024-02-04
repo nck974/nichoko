@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { getDiyProjects } from '../../content/projects/diy';
 import { getSoftwareProjects } from '../../content/projects/software';
@@ -21,31 +21,55 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   @ViewChild('nextButton') nextButton?: ElementRef;
   @ViewChild('previousButton') previousButton?: ElementRef;
 
-  urlSubscription?: Subscription;
+  paramUrlSubscription?: Subscription;
+  queryUrlSubscription?: Subscription;
   softwareBackgroundImage = "/assets/images/home/image-2-software.png"
   diyBackgroundImage = "/assets/images/home/image-3-build.png"
   backgroundImageUrl = this.softwareBackgroundImage;
+  backgroundIndex = 3;
 
   carouselItems = getSoftwareProjects();
   currentIndex = 0;
 
   selectedImage?: string | null;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.urlSubscription = this.route.paramMap.subscribe((params) => {
+    this.checkProjectType();
+  }
+
+  ngOnDestroy(): void {
+    this.paramUrlSubscription?.unsubscribe();
+    this.queryUrlSubscription?.unsubscribe();
+  }
+
+  private checkProjectType(): void {
+    this.paramUrlSubscription = this.activatedRoute.paramMap.subscribe((params) => {
       const projectType = params.get("projectType");
       if (projectType && projectType == "diy") {
         this.backgroundImageUrl = this.diyBackgroundImage;
         this.carouselItems = getDiyProjects();
+        this.backgroundIndex = 4;
       }
+      this.checkQueryIndex();
     })
   }
 
-  ngOnDestroy(): void {
-    this.urlSubscription?.unsubscribe();
+  private checkQueryIndex(): void {
+    this.queryUrlSubscription = this.activatedRoute.queryParamMap.subscribe((params) => {
+      const indexString = params.get("index");
+      if (!indexString) {
+        return;
+      }
+      const index = parseInt(indexString);
+
+      if (index && index > 0 && this.carouselItems && index < this.carouselItems?.length) {
+        this.changePage(0, index);
+      }
+    });
   }
+
 
   private showPage(index: number): void {
     if (index < 0 || (this.pages && index >= this.pages?.length) || !this.pages) {
@@ -67,6 +91,16 @@ export class ProjectsComponent implements OnInit, OnDestroy {
     this.hidePage(currentIndex);
     this.showPage(nextIndex);
     this.currentIndex = nextIndex;
+    this.storePositionInUrl(nextIndex);
+  }
+
+
+  private storePositionInUrl(index: number): void {
+    this.router.navigate([], {
+      relativeTo: this.activatedRoute,
+      queryParams: { index: index },
+      queryParamsHandling: 'merge',
+    });
   }
 
   onMoveToNextPage(): void {
