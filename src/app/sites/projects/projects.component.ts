@@ -100,6 +100,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
       relativeTo: this.activatedRoute,
       queryParams: { index: index },
       queryParamsHandling: 'merge',
+      replaceUrl: true
     });
   }
 

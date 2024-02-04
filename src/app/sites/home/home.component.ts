@@ -22,7 +22,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   urlSubscription?: Subscription;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
-  
+
   ngOnDestroy(): void {
     this.urlSubscription?.unsubscribe();
   }
@@ -113,6 +113,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
       relativeTo: this.activatedRoute,
       queryParams: { index: index },
       queryParamsHandling: 'merge',
+      replaceUrl: true
     });
   }
 
@@ -120,11 +121,14 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     this.navigateToPage(index + 1);
   }
 
-  onNavigate(url: string): void {
-    const navigationExtras: NavigationExtras = {
-      preserveFragment: true,
-    };
-    this.router.navigateByUrl(url, navigationExtras);
+  onNavigate(url: string, currentIndex: number): void {
+    this.storePositionInUrl(currentIndex);
+    setTimeout(() => {
+      const navigationExtras: NavigationExtras = {
+        preserveFragment: true,
+      };
+      this.router.navigateByUrl(url, navigationExtras);
+    });
   }
 
 }

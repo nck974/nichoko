@@ -17,16 +17,19 @@
         @if (pageContent.clickText && pageContent.link){
         <div class="links">
             <a
-                (click)="onNavigate(pageContent.link)">{{pageContent.clickText}}</a>
+                (click)="onNavigate(pageContent.link, index)">{{pageContent.clickText}}
+            </a>
         </div>
         }
 
     </div>
 
     <!-- Next button -->
-    <div id="nextButtonWrapper-{{index}}" class="navigation-wrapper navigation-wrapper-bottom hidden">
+    <div id="nextButtonWrapper-{{index}}"
+        class="navigation-wrapper navigation-wrapper-bottom hidden">
         <app-next-button
-            [onClick]="onClickNext.bind(this, index)" direction="down"></app-next-button>
+            [onClick]="onClickNext.bind(this, index)"
+            direction="down"></app-next-button>
     </div>
 
 </div>
