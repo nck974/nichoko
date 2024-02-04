@@ -30,7 +30,7 @@ export function getDiyProjects(): Project[] {
                 "/assets/images/projects/diy/guitar-2.jpg",
                 "/assets/images/projects/diy/guitar-3.jpg",
             ],
-            description: "All the pieces where bought as a kit so most of the work involved just the preparation of the wood and then doing the paint job.<br><br>First it had to be sanded to get a smooth surface. Then it involved many paint layers as the primer included in the kit seems to be not working as expected. Spraying the color also required some experience which made me redo everything a couple of times. Finally for the shiny look it also required a good quality varnish and many hours of hand polishing to get to the results of the photo.<br><br>As it was part of a kit quiet cheap the electronic components where not great and some electric noise could be heard with the guitar connected which could be partially solved by using aluminum foil."
+            description: "All the pieces where bought as a kit so most of the work involved just the preparation of the wood and then doing the paint job.<br><br>First it had to be sanded to get a smooth surface. Then it involved many paint layers as the primer included in the kit seems to be not working as expected. Spraying the color also required some experience which made me redo everything a couple of times. Finally for the shiny look it also required a good quality varnish and many hours of hand polishing to get to the results of the photo.<br><br>As it was part of an affordable kit, the electronic components where not great and some electric noise could be heard with the guitar connected which could be partially solved by using aluminum foil inside."
         },
         {
             id: 3,
@@ -40,7 +40,7 @@ export function getDiyProjects(): Project[] {
                 "/assets/images/projects/diy/distortion-pedal-2.jpg",
                 "/assets/images/projects/diy/distortion-pedal-3.jpg",
             ],
-            description: "This small project was bought as a kit which involved soldering all components and assembling a frame for it. The frame was spray painted, and polished for its end result.<br><br>The pedal worked as expected but using a cheap power source introduced too much noise to the signal, so a buying a quality DC power source is required for this projects."
+            description: "This small project was bought as a kit which involved soldering all components and assembling a frame for it. The frame was spray painted, and polished for its end result.<br><br>The pedal worked as expected but using an affordable power source introduced too much noise to the signal, so a buying a quality DC power source is required for this projects."
         },
         {
             id: 4,
@@ -95,7 +95,7 @@ export function getDiyProjects(): Project[] {
                 "/assets/images/projects/diy/shoe-rack-2.jpg",
                 "/assets/images/projects/diy/shoe-rack-3.jpg",
             ],
-            description: "Small and cheap shoe rack built to fit exactly under the table.."
+            description: "Small and cheap shoe rack built to fit exactly under the available space of a table."
         },
         {
             id: 9,
@@ -105,7 +105,7 @@ export function getDiyProjects(): Project[] {
                 "/assets/images/projects/diy/tools-cabinet-2.jpg",
                 "/assets/images/projects/diy/tools-cabinet-3.jpg",
             ],
-            description: "This was build to store all tools and have quick access to some of them It used cheap particle board for the interior, then it was covered with a thin layer of oak on the outside to give it the look of wood. For the doors light pine was used.<br><br>The paining was done using and air compressor which I had not experience before, therefore the liens are too visible and could have been improved."
+            description: "This was build to store all tools and have quick access to some of them. It used affordable particle board for the interior, then it was covered with a thin layer of oak on the outside to give it the look of wood. For the doors light pine was used.<br><br>The varnishing was done using and air compressor which I had not experience before, therefore the liens are too visible and could have been improved."
         },
         {
             id: 10,

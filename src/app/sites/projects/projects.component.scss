@@ -22,6 +22,7 @@
 }
 
 .project-image {
+    min-width: 0; // Fix chrome bug that was overflowing images
     width: 100%;
     max-height: 50vh;
     object-fit: contain;
