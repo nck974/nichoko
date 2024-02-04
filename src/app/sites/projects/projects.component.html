@@ -1,5 +1,7 @@
 <div id="wrapper" class="full-screen-background bg-3">
 
+    <app-go-back-button></app-go-back-button>
+
     @if(backgroundImageUrl){
     <img #backgroundImage class="background-image show"
         [src]="backgroundImageUrl"
@@ -20,7 +22,8 @@
             @if( item.images){
             <div class="project-image-wrapper">
                 @for(image of item.images; track image; let index = $index){
-                <img class="project-image solid-border show-cursor" [src]="image"
+                <img class="project-image solid-border show-cursor"
+                    [src]="image"
                     alt="Project Image {{index}}"
                     (click)="showImage(image)">
                 }
@@ -71,6 +74,7 @@
 <!-- Full screen image -->
 @if(selectedImage){
 <div class="full-size-image-overlay" (click)="hideImage()">
-    <img class="solid-border show-cursor" [src]="selectedImage" alt="Full Size Image">
+    <img class="solid-border show-cursor" [src]="selectedImage"
+        alt="Full Size Image">
 </div>
 }
