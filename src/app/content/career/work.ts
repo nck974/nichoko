@@ -1,6 +1,6 @@
 import { CareerCompany } from "../../model/career";
 
-export function getCareerContent(): CareerCompany[] {
+export function getWorkContent(): CareerCompany[] {
     return [
         {
             name: "HMG Systems Engineering",

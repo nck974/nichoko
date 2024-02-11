@@ -1,0 +1,86 @@
+// Global container
+.work-container {
+    padding: 1rem;
+    background-color: #ffffff2b;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 90vw;
+}
+
+// Single company
+.company-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+@media (max-width: 767px) {
+    .company-wrapper {
+        flex-direction: column;
+        gap: 1.5rem
+    }
+
+}
+
+.company {
+    align-self: center;
+    flex-basis: 60%;
+}
+
+// All positions
+.positions-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    justify-content: center;
+}
+
+
+// Single position
+.position-wrapper {
+    gap: 0;
+}
+
+.position {
+    padding: 1rem;
+}
+
+.position:hover {
+    background-color: #3498db25;
+}
+
+// Position activities
+.position-activities-wrapper {
+    padding: 1rem 0;
+    border-top: none;
+    margin-top: 0;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    max-height: 0;
+}
+
+// Animate dropdown menu
+.position-activities-wrapper.show {
+    opacity: 1;
+    max-height: none;
+}
+
+.position-activities-wrapper li {
+    list-style: none;
+}
+
+.position-activities-wrapper li::before {
+    content: "\2022";
+    color: #3498db;
+    font-weight: bold;
+    margin-right: 0.2rem;
+}
+
+.position-activity {
+    padding: 0.2rem 1rem;
+    text-align: justify;
+}

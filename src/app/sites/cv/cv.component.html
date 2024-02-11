@@ -9,47 +9,26 @@
         alt="Background image">
     }
 
-    <!-- Work -->
-    <div #workContainer id="workContainer"
-        class="work-container solid-border">
-        @for(company of careerContent; track company.name; let companyIndex = $index){
-        <div class="company-wrapper" [class.solid-border]="careerContent.length > 1">
-
-            <!-- Company -->
-            <div #company{{$index}} class="company subtitle title-centered">
-                {{company.name}}
-            </div>
-
-            <!-- Positions -->
-            <div #position{{$index}} class="positions-wrapper">
-                @for(
-                position of company.positions;
-                track position.name;
-                let positionIndex = $index
-                ){
-                
-                <div class="position-wrapper">
-                    <!-- Position -->
-                    <div class="position solid-border show-cursor"
-                        (click)="onToggleActivities(companyIndex, positionIndex)">
-                        {{position.name}}
-                        (<span>{{position.startRange}}</span>-<span>{{position.endRange}}</span>)
-                    </div>
-    
-                    <!-- Activities -->
-                    <ul id="positionActivitiesContainer-{{companyIndex}}-{{positionIndex}}"
-                        class="position-activities-wrapper solid-border hidden">
-                        @for(activity of position.activities; track activity){
-                        <li class="position-activity">
-                            {{activity}}
-                        </li>
-                        }
-                    </ul>
-                </div>
-                }
-            </div>
+    <!-- Page -->
+    <div class="page">
+    <!-- Control section -->
+    <div class="control-wrapper">
+        @for(section of sections; track section.path){
+        <div class="control">
+            <a class="control-button show-cursor"
+                (click)="onSelectSection(section)">
+                <span class="control-icon">
+                    {{section.icon}}
+                </span>
+                <span class="control-text"> {{section.name}}</span>
+            </a>
         </div>
         }
+    </div>
+
+    <!-- Work -->
+    <app-career-section [careerContent]="careerContent"></app-career-section>
+
     </div>
 
 </div>

@@ -1,0 +1,49 @@
+<div #workContainer id="workContainer"
+    class="work-container solid-border">
+    @for(company of careerContent; track company.name; let companyIndex =
+    $index){
+    <div class="company-wrapper"
+        [class.solid-border]="careerContent.length > 1">
+
+        <!-- Company -->
+        <div #company{{$index}} class="company subtitle title-centered">
+            {{company.name}}
+        </div>
+
+        <!-- Positions -->
+        <div #position{{$index}} class="positions-wrapper">
+            @for(
+            position of company.positions;
+            track position.name;
+            let positionIndex = $index
+            ){
+
+            <div class="position-wrapper">
+                <!-- Position -->
+                <div class="position solid-border"
+                    [class.show-cursor]="position.activities.length > 0"
+                    (click)="onToggleActivities(companyIndex, positionIndex)">
+                    {{position.name}}
+                    (<span>{{position.startRange}}</span> @if(position.endRange){
+                    - <span>{{position.endRange}}</span>
+                    })
+                </div>
+
+                @if (position) {
+                <!-- Activities -->
+                <ul
+                    id="positionActivitiesContainer-{{companyIndex}}-{{positionIndex}}"
+                    class="position-activities-wrapper solid-border hidden">
+                    @for(activity of position.activities; track activity){
+                    <li class="position-activity">
+                        {{activity}}
+                    </li>
+                    }
+                </ul>
+                }
+            </div>
+            }
+        </div>
+    </div>
+    }
+</div>
