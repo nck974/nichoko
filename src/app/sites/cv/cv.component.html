@@ -11,23 +11,31 @@
 
     <!-- Page -->
     <div class="page">
-    <!-- Control section -->
-    <div class="control-wrapper">
-        @for(section of sections; track section.path){
-        <div class="control">
-            <a class="control-button show-cursor"
-                (click)="onSelectSection(section)">
-                <span class="control-icon">
-                    {{section.icon}}
-                </span>
-                <span class="control-text"> {{section.name}}</span>
-            </a>
-        </div>
-        }
-    </div>
 
-    <!-- Work -->
-    <app-career-section [careerContent]="careerContent"></app-career-section>
+        <!-- Control section -->
+        <div class="control-wrapper">
+            @for(section of sections; track section.path){
+            <div
+                [class.control-selected]="section.path==selectedSection.path"
+                [class.show-cursor]="section.path!=selectedSection.path">
+                <a class="control-button"
+                    (click)="onSelectSection(section)">
+                    <span class="control-icon">
+                        {{section.icon}}
+                    </span>
+                    <span class="control-text"> {{section.name}}</span>
+                </a>
+            </div>
+            }
+        </div>
+
+        <!-- Work -->
+        @if(selectedSection){
+        <app-career-section
+            [@fadeInOut]="isTransitionTriggered"
+            [careerContent]="selectedSection.career">
+        </app-career-section>
+        }
 
     </div>
 

@@ -6,7 +6,7 @@ import { CareerCompany } from '../../../../model/career';
   standalone: true,
   imports: [],
   templateUrl: './career-section.component.html',
-  styleUrl: './career-section.component.scss'
+  styleUrl: './career-section.component.scss',
 })
 export class CareerSectionComponent {
   @Input({ required: true }) careerContent!: CareerCompany[];

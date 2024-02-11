@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 1rem;
 }
 
 // All controls
@@ -11,41 +12,45 @@
     display: flex;
     flex-direction: row;
     align-self: center;
+    align-items: center;
     gap: 1rem;
     margin: 1rem;
 }
 
 // Single control
-// .control {
-//     padding: 1rem;
-// }
+.control-selected {
+    font-weight: bolder;
+    font-size: 1.3em;
+}
 
 
-.control-button span {
+.control-button {
     text-decoration: none;
     color: white;
     text-decoration-line: underline;
     transition: color 0.3s ease-in-out;
-    cursor: pointer;
 }
 
-.control-button span:hover {
+.control-button:hover {
     color: #79c7fa;
 }
 
 // Change display mode in mobile
 @media (max-width: 767px) {
-    .page{
+    .page {
         align-self: flex-start;
     }
-    .control-wrapper{
+
+    .control-wrapper {
         gap: 1.5rem;
         margin-top: 3rem;
         margin-bottom: 2rem;
     }
-    .control-icon{
+
+    .control-icon {
         font-size: x-large;
     }
+
     .control-text {
         display: none;
     }

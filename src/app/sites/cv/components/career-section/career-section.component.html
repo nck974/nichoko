@@ -1,4 +1,4 @@
-<div #workContainer id="workContainer"
+<div #workContainer
     class="work-container solid-border">
     @for(company of careerContent; track company.name; let companyIndex =
     $index){
@@ -24,12 +24,14 @@
                     [class.show-cursor]="position.activities.length > 0"
                     (click)="onToggleActivities(companyIndex, positionIndex)">
                     {{position.name}}
-                    (<span>{{position.startRange}}</span> @if(position.endRange){
+                    (<span>{{position.startRange}}</span>
+                    @if(position.endRange){
                     - <span>{{position.endRange}}</span>
                     })
                 </div>
 
                 @if (position) {
+
                 <!-- Activities -->
                 <ul
                     id="positionActivitiesContainer-{{companyIndex}}-{{positionIndex}}"
