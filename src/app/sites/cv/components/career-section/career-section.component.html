@@ -18,16 +18,26 @@
             let positionIndex = $index
             ){
 
+            <!-- Single position -->
             <div class="position-wrapper">
-                <!-- Position -->
-                <div class="position solid-border"
-                    [class.show-cursor]="position.activities.length > 0"
-                    (click)="onToggleActivities(companyIndex, positionIndex)">
-                    {{position.name}}
-                    (<span>{{position.startRange}}</span>
-                    @if(position.endRange){
-                    - <span>{{position.endRange}}</span>
-                    })
+
+                <!-- Position title -->
+                <div class="position-menu solid-border">
+                    <div class="position solid-border-right">
+                        {{position.name}}
+                        (<span>{{position.startRange}}</span>
+                        @if(position.endRange){
+                        - <span>{{position.endRange}}</span>
+                        })
+                    </div>
+
+                    <!-- Arrow open activities -->
+                    @if(position.activities.length>0){
+                    <div class="position-arrow show-cursor"
+                        (click)="onToggleActivities(companyIndex, positionIndex)">
+                        &#9660;
+                    </div>
+                    }
                 </div>
 
                 @if (position) {

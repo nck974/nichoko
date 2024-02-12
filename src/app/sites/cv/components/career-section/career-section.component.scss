@@ -22,7 +22,6 @@
         flex-direction: column;
         gap: 1.5rem
     }
-
 }
 
 .company {
@@ -45,13 +44,28 @@
     gap: 0;
 }
 
+
 .position {
     padding: 1rem;
+    width: 100%;
 }
 
-.position:hover {
+// Menu to select activities
+.position-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.position-menu:hover {
     background-color: #3498db25;
 }
+
+.position-arrow {
+    padding: 0.5rem;
+}
+
 
 // Position activities
 .position-activities-wrapper {
