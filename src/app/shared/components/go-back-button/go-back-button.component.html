@@ -1,1 +1,3 @@
-<a class="return show-cursor" title="Go back" (click)="onGoBack()"></a>
+<div class="top-left">
+    <app-next-button [direction]="'left'" [onClick]="onGoBack.bind(this)"></app-next-button>
+</div>

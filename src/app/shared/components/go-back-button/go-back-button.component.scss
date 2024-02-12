@@ -1,27 +1,7 @@
-// Go back button
-.return {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
+.top-left {
+    position: absolute;
+    margin: 1rem;
     top: 0;
     left: 0;
     z-index: 100;
-    margin: 1rem;
-    font-size: 1.5rem;
-    color: #3498db;
-    background-color: #ffff;
-    border: solid 1px #3498db;
-    border-radius: 50%;
-    width: 2em;
-    height: 2em;
-}
-
-.return:hover{
-    background-color: #3498db;
-    color: #ffff;
-}
-
-.return::before {
-    content: '\2B05';
 }
