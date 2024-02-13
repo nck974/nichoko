@@ -7,11 +7,12 @@ import { CareerSection } from '../../model/career';
 import { GoBackButtonComponent } from '../../shared/components/go-back-button/go-back-button.component';
 import { CareerSectionComponent } from './components/career-section/career-section.component';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { BackgroundImageComponent } from '../../shared/components/background-image/background-image.component';
 
 @Component({
   selector: 'app-cv',
   standalone: true,
-  imports: [GoBackButtonComponent, CareerSectionComponent],
+  imports: [GoBackButtonComponent, CareerSectionComponent, BackgroundImageComponent],
   templateUrl: './cv.component.html',
   styleUrl: './cv.component.scss',
   animations: [

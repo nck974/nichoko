@@ -2,11 +2,9 @@
 
 <div id="wrapper" class="full-screen-background bg-{{backgroundIndex}}">
 
-    @if(backgroundImageUrl){
-    <img #backgroundImage class="background-image show"
-        [src]="backgroundImageUrl"
-        alt="Background image">
-    }
+    <!-- Background Image -->
+    <app-background-image
+        [backgroundImageUrl]="backgroundImageUrl"></app-background-image>
 
     <div #carouselContainer id="carouselContainer"
         class="carousel-container solid-border">

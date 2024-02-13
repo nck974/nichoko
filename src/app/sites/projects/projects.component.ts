@@ -6,11 +6,12 @@ import { getSoftwareProjects } from '../../content/projects/software';
 import { ChipComponent } from '../../shared/components/chip/chip.component';
 import { GoBackButtonComponent } from '../../shared/components/go-back-button/go-back-button.component';
 import { NextButtonComponent } from '../../shared/components/next-button/next-button.component';
+import { BackgroundImageComponent } from '../../shared/components/background-image/background-image.component';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [NextButtonComponent, ChipComponent, GoBackButtonComponent],
+  imports: [NextButtonComponent, ChipComponent, GoBackButtonComponent, BackgroundImageComponent],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
