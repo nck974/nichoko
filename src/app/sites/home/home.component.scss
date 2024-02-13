@@ -24,7 +24,7 @@
 
 // Links
 .links {
-    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-size: clamp(1.2rem, 4vw, 3rem);
 }
 
 .links a {
@@ -42,11 +42,11 @@
 .links a::before {
     content: '\2192';
     display: inline-block;
-    margin-right: 8px;
+    margin-right: 1rem;
 }
 
 .links a::after {
     content: '\2190';
     display: inline-block;
-    margin-left: 8px;
+    margin-left: 1rem;
 }
