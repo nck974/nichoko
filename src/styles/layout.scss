@@ -1,9 +1,18 @@
 .full-screen-background {
     position: relative;
-    display: grid;
-    place-items: center;
     min-height: 100vh;
     overflow: hidden;
+}
+
+.grid-centered {
+    display: grid;
+    place-items: center;
+}
+
+.flex-vertical-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hidden {

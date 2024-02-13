@@ -1,39 +1,35 @@
 <app-go-back-button></app-go-back-button>
 
-<div id="wrapper" class="full-screen-background bg-{{backgroundIndex}}">
+<div id="wrapper"
+    class="full-screen-background bg-{{backgroundIndex}} flex-vertical-centered">
 
     <!-- Background Image -->
     <app-background-image
         [backgroundImageUrl]="backgroundImageUrl"></app-background-image>
 
-    <!-- Page -->
-    <div class="page">
-
-        <!-- Control section -->
-        <div class="control-wrapper">
-            @for(section of sections; track section.path){
-            <div
-                [class.control-selected]="section.path==selectedSection.path"
-                [class.show-cursor]="section.path!=selectedSection.path">
-                <a class="control-button"
-                    (click)="onSelectSection(section)">
-                    <span class="control-icon">
-                        {{section.icon}}
-                    </span>
-                    <span class="control-text"> {{section.name}}</span>
-                </a>
-            </div>
-            }
+    <!-- Control section -->
+    <div class="control-wrapper">
+        @for(section of sections; track section.path){
+        <div
+            [class.control-selected]="section.path==selectedSection.path"
+            [class.show-cursor]="section.path!=selectedSection.path">
+            <a class="control-button"
+                (click)="onSelectSection(section)">
+                <span class="control-icon">
+                    {{section.icon}}
+                </span>
+                <span class="control-text"> {{section.name}}</span>
+            </a>
         </div>
-
-        <!-- Work -->
-        @if(selectedSection){
-        <app-career-section
-            [@fadeInOut]="isTransitionTriggered"
-            [careerContent]="selectedSection.career">
-        </app-career-section>
         }
-
     </div>
+
+    <!-- Work -->
+    @if(selectedSection){
+    <app-career-section
+        [@fadeInOut]="isTransitionTriggered"
+        [careerContent]="selectedSection.career">
+    </app-career-section>
+    }
 
 </div>
