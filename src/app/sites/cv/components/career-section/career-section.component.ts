@@ -24,12 +24,10 @@ export class CareerSectionComponent {
     const element: HTMLElement = this.elementRef.nativeElement
       .querySelector(`#positionActivitiesContainer-${companyIndex}-${positionIndex}`);
 
-    if (element.classList.contains("hidden")) {
-      element.classList.remove("hidden");
-      setTimeout(() => element.classList.add("show"));
-    } else {
+    if (element.classList.contains("show")) {
       element.classList.remove("show");
-      setTimeout(() => element.classList.add("hidden"));
+    } else {
+      element.classList.add("show");
     }
   }
 }

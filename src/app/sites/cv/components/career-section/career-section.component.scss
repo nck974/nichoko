@@ -69,18 +69,22 @@
 
 // Position activities
 .position-activities-wrapper {
-    padding: 1rem 0;
     border-top: none;
     margin-top: 0;
-    transition: all 0.5s ease-in-out;
+    margin-bottom: 0;
+    transition: max-height 0.5s ease-in, opacity 0.5s ease-in, ;
     opacity: 0;
     max-height: 0;
+    padding: 0rem 0;
+    overflow: hidden;
 }
 
 // Animate dropdown menu
 .position-activities-wrapper.show {
+    padding: 1rem 0;
     opacity: 1;
     max-height: none;
+    display: inline-table;
 }
 
 .position-activities-wrapper li {

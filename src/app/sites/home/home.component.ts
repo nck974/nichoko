@@ -1,6 +1,6 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, ViewportScroller } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, OnDestroy, QueryList, ViewChildren } from '@angular/core';
-import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { getHomePageContent } from '../../content/home/page-content';
 import { PageContent } from '../../model/PageContent';
@@ -21,7 +21,10 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   latestLoadedIndex = 0;
   urlSubscription?: Subscription;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private viewportScroller: ViewportScroller) { }
 
   ngOnDestroy(): void {
     this.urlSubscription?.unsubscribe();
@@ -124,10 +127,10 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
   onNavigate(url: string, currentIndex: number): void {
     this.storePositionInUrl(currentIndex);
     setTimeout(() => {
-      const navigationExtras: NavigationExtras = {
-        preserveFragment: true,
-      };
-      this.router.navigateByUrl(url, navigationExtras);
+      this.router.navigateByUrl(url).then(() => {
+        // Fix bug that when accessing the page it appears scrolled down
+        this.viewportScroller.scrollToPosition([0, 0]);
+      });
     });
   }
 
