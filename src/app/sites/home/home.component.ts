@@ -124,7 +124,16 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
     this.navigateToPage(index + 1);
   }
 
+  openMail(url: string): void {
+    window.open(url);
+  }
+
   onNavigate(url: string, currentIndex: number): void {
+    if (url.startsWith("mailto:")) {
+      this.openMail(url);
+      return;
+    }
+
     this.storePositionInUrl(currentIndex);
     setTimeout(() => {
       this.router.navigateByUrl(url).then(() => {
