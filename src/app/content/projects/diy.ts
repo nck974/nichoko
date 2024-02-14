@@ -19,6 +19,7 @@ export function getDiyProjects(): Project[] {
             images: [
                 "/assets/images/projects/diy/kalimba-1.jpg",
                 "/assets/images/projects/diy/kalimba-2.jpg",
+                "/assets/images/projects/diy/kalimba-3.jpg",
             ],
             description: "I built this instrument some time ago. It is made out of a coconut shell, an old piece of wood and the metal of some old car shield wipers.<br><br>This was done with only manual tools excluding the wood burner for the face."
         },
