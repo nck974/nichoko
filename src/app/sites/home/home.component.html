@@ -3,9 +3,8 @@
 
     <!-- Background Image -->
     @if(pageContent.image){
-    <img id="backgroundImage-{{index}}" class="background-image"
-        [src]="pageContent.image"
-        alt="{{pageContent.altNameImage}}">
+    <app-background-image
+        [backgroundImageUrl]="pageContent.image"></app-background-image>
     }
 
     <!-- Text content -->

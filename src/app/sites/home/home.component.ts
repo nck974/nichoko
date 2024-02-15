@@ -5,11 +5,12 @@ import { Subscription } from 'rxjs';
 import { getHomePageContent } from '../../content/home/page-content';
 import { PageContent } from '../../model/PageContent';
 import { NextButtonComponent } from '../../shared/components/next-button/next-button.component';
+import { BackgroundImageComponent } from '../../shared/components/background-image/background-image.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, NextButtonComponent],
+  imports: [CommonModule, NextButtonComponent, BackgroundImageComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
