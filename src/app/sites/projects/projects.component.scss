@@ -19,14 +19,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-.project-image {
-    min-width: 0; // Fix chrome bug that was overflowing images
-    width: 100%;
-    max-height: 50vh;
-    object-fit: contain;
-    margin: 15px;
+    gap: 0.5rem;
+    margin: 1rem 0;
 }
 
 // Tags

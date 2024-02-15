@@ -42,11 +42,11 @@
 .links a::before {
     content: '\2192';
     display: inline-block;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
 }
 
 .links a::after {
     content: '\2190';
     display: inline-block;
-    margin-left: 1rem;
+    margin-left: 0.5rem;
 }

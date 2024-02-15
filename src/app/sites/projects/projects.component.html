@@ -1,6 +1,7 @@
 <app-go-back-button></app-go-back-button>
 
-<div id="wrapper" class="full-screen-background bg-{{backgroundIndex}} flex-vertical-centered">
+<div id="wrapper"
+    class="full-screen-background bg-{{backgroundIndex}} flex-vertical-centered">
 
     <!-- Background Image -->
     <app-background-image
@@ -20,10 +21,12 @@
             @if( item.images){
             <div class="project-image-wrapper">
                 @for(image of item.images; track image; let index = $index){
-                <img class="project-image solid-border show-cursor"
-                    [src]="image"
-                    alt="Project Image {{index}}"
-                    (click)="showImage(image)">
+                @defer(){
+                <app-project-image [image]="image"
+                    (imageClick)="showImage($event)"></app-project-image>
+                } @placeholder {
+                <app-loading-spinner></app-loading-spinner>
+                }
                 }
             </div>
             }

@@ -3,15 +3,24 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { getDiyProjects } from '../../content/projects/diy';
 import { getSoftwareProjects } from '../../content/projects/software';
+import { BackgroundImageComponent } from '../../shared/components/background-image/background-image.component';
 import { ChipComponent } from '../../shared/components/chip/chip.component';
 import { GoBackButtonComponent } from '../../shared/components/go-back-button/go-back-button.component';
+import { LoadingSpinnerComponent } from '../../shared/components/loading-spinner/loading-spinner.component';
 import { NextButtonComponent } from '../../shared/components/next-button/next-button.component';
-import { BackgroundImageComponent } from '../../shared/components/background-image/background-image.component';
+import { ProjectImageComponent } from './components/project-image/project-image.component';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [NextButtonComponent, ChipComponent, GoBackButtonComponent, BackgroundImageComponent],
+  imports: [
+    NextButtonComponent,
+    ChipComponent,
+    GoBackButtonComponent,
+    BackgroundImageComponent,
+    ProjectImageComponent,
+    LoadingSpinnerComponent
+  ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
