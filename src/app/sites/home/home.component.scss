@@ -43,10 +43,12 @@
     content: '\2192';
     display: inline-block;
     margin-right: 0.5rem;
+    animation: flash 3s infinite;
 }
 
 .links a::after {
     content: '\2190';
     display: inline-block;
     margin-left: 0.5rem;
+    animation: flash 3s infinite;
 }
