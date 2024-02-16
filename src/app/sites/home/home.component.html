@@ -26,9 +26,11 @@
     <!-- Next button -->
     <div id="nextButtonWrapper-{{index}}"
         class="navigation-wrapper navigation-wrapper-bottom hidden">
+        @defer () {
         <app-next-button
             [onClick]="onClickNext.bind(this, index)"
             direction="down"></app-next-button>
+        }
     </div>
 
 </div>
