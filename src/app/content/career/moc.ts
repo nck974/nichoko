@@ -49,15 +49,6 @@ export function getMocContent(): CareerCompany[] {
                     ]
                 },
                 {
-                    name: " Flutter & Dart - The Complete Guide",
-                    startRange: "2022",
-                    activities: [
-                        "Learn in depth Flutter.",
-                        "Learn the state management using providers.",
-                        "Support the creation of my app 'Compulsive Shopping'.",
-                    ]
-                },
-                {
                     name: "CSS - The Complete Guide 2021 (incl. Flexbox, Grid & Sass)",
                     startRange: "2022",
                     endRange: "2022",
