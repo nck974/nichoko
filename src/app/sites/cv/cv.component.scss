@@ -1,0 +1,54 @@
+// All controls
+.control-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 4rem 1rem;
+}
+
+// Single control
+.control-selected {
+    font-weight: bolder;
+    font-size: 1.3em;
+}
+
+
+.control-button {
+    text-decoration: none;
+    color: white;
+    text-decoration-line: underline;
+    transition: color 0.3s ease-in-out;
+}
+
+.control-button:hover {
+    color: #79c7fa;
+}
+
+// Change display mode in mobile
+@media (max-width: 767px) {
+    .page {
+        align-self: flex-start;
+        gap: 1rem
+    }
+
+    .control-wrapper {
+        gap: 1.5rem;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .control-icon {
+        font-size: x-large;
+    }
+
+    .control-selected .control-icon {
+        font-size: xx-large;
+    }
+
+    .control-text {
+        display: none;
+    }
+
+}

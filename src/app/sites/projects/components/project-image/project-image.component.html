@@ -1,0 +1,11 @@
+<img class="project-image solid-border show-cursor"
+    [src]="image"
+    loading="lazy"
+    alt="project image"
+    (click)="onClick()"
+    [class.hidden-image]="loading"
+    (load)="onImageLoaded()"
+    (error)="onImageError()">
+@if(loading){
+<app-loading-spinner></app-loading-spinner>
+}

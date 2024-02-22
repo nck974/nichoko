@@ -1,4 +1,6 @@
-export interface SoftwareProject {
+import { Chip } from "./chip";
+
+export interface Project {
     id: number,
     title: string,
     description: string,
@@ -6,5 +8,5 @@ export interface SoftwareProject {
     linkIcon?: string,
     images?: string[],
     altNameImages?: string[],
-    tags: string[],
+    tags?: Chip[],
 }
