@@ -1,0 +1,62 @@
+// Background
+.background-absolute-position{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+// Text
+.text-content {
+    position: relative;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.5s 0.5s;
+    max-width: min(1000px, 90%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.text-content h2 {
+    max-width: min(800px, 90%);
+    font-size: clamp(1rem, 5vw, 2rem);
+}
+
+.text-content.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+// Links
+.links {
+    font-size: clamp(1.2rem, 4vw, 3rem);
+}
+
+.links a {
+    text-decoration: none;
+    color: white;
+    text-decoration-line: underline;
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.links a:hover {
+    color: #79c7fa;
+}
+
+.links a::before {
+    content: '\2192';
+    display: inline-block;
+    margin-right: 0.5rem;
+    animation: flash 3s infinite;
+}
+
+.links a::after {
+    content: '\2190';
+    display: inline-block;
+    margin-left: 0.5rem;
+    animation: flash 3s infinite;
+}

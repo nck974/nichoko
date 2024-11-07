@@ -1,0 +1,37 @@
+@for (pageContent of pagesContent; track pageContent.id; let index=$index) {
+<div #page class="full-screen-background hidden bg-{{index+1}} grid-centered">
+
+    <!-- Background Image -->
+    @if(pageContent.image){
+    <app-background-image class="background-absolute-position"
+        [backgroundImageUrl]="pageContent.image"></app-background-image>
+    }
+
+    <!-- Text content -->
+    <div id="textContent-{{index}}" class="text-content">
+
+        <h1 class="title title-centered">{{pageContent.title}}</h1>
+        <h2>{{pageContent.body}}</h2>
+
+        @if (pageContent.clickText && pageContent.link){
+        <div class="links">
+            <a
+                (click)="onNavigate(pageContent.link, index)">{{pageContent.clickText}}
+            </a>
+        </div>
+        }
+
+    </div>
+
+    <!-- Next button -->
+    <div id="nextButtonWrapper-{{index}}"
+        class="navigation-wrapper navigation-wrapper-bottom hidden">
+        @defer () {
+        <app-next-button
+            [onClick]="onClickNext.bind(this, index)"
+            direction="down"></app-next-button>
+        }
+    </div>
+
+</div>
+}

@@ -1,0 +1,81 @@
+<app-go-back-button></app-go-back-button>
+
+<div id="wrapper"
+    class="full-screen-background bg-{{backgroundIndex}} flex-vertical-centered">
+
+    <!-- Background Image -->
+    <app-background-image
+        [backgroundImageUrl]="backgroundImageUrl"></app-background-image>
+
+    <div #carouselContainer id="carouselContainer"
+        class="carousel-container solid-border">
+
+        @for(item of carouselItems; track item;){
+        <div #carouselPage class="carousel-item"
+            [class.hidden]="$index != currentIndex">
+
+            <!-- Title -->
+            <h2 class="title title-centered">{{ item.title }}</h2>
+
+            <!-- Screenshots -->
+            @if( item.images){
+            <div class="project-image-wrapper">
+                @for(image of item.images; track image; let index = $index){
+                @defer(){
+                <app-project-image [image]="image"
+                    (imageClick)="showImage($event)"></app-project-image>
+                } @placeholder {
+                <app-loading-spinner></app-loading-spinner>
+                }
+                }
+            </div>
+            }
+
+            <!-- Technology  & links-->
+            <div class="tags">
+                @if(item.link && item.linkIcon){
+                <div class="icon-wrapper">
+                    <a [href]="item.link" target="_blank">
+                        <img class="small-icon" [src]="item.linkIcon"
+                            alt="source-icon">
+                    </a>
+                </div>
+                }
+                @for(tag of item.tags; track tag){
+                <app-chip [color]="tag.color" [name]="tag.name"></app-chip>
+                }
+            </div>
+
+            <!-- Description -->
+            <p [innerHTML]="item.description" class="text-body"></p>
+
+        </div>
+        }
+
+    </div>
+
+    <!-- Workflow -->
+    @if(currentIndex>0){
+    <div class="navigation-wrapper navigation-wrapper-left">
+        <app-next-button
+            [onClick]="onMoveToPreviousPage.bind(this)"
+            direction="left"></app-next-button>
+    </div>
+    }
+    @if(currentIndex<carouselItems.length-1){
+        <div class="navigation-wrapper navigation-wrapper-right">
+        <app-next-button
+            [onClick]="onMoveToNextPage.bind(this)"
+            direction="right"></app-next-button>
+    </div>
+    }
+
+</div>
+
+<!-- Full screen image -->
+@if(selectedImage){
+<div class="full-size-image-overlay" (click)="hideImage()">
+    <img class="solid-border show-cursor" [src]="selectedImage"
+        alt="Full Size Image">
+</div>
+}

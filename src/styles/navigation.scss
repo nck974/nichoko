@@ -1,0 +1,40 @@
+// Location the navigation buttons
+.navigation-wrapper {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    z-index: 100;
+    transition: transform 0.3s ease;
+}
+
+.navigation-wrapper-left {
+    top: 50%;
+    left: 0;
+}
+
+.navigation-wrapper-right {
+    top: 50%;
+    right: 0;
+}
+
+.navigation-wrapper-bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.show-cursor{
+    cursor: pointer;
+}
+
+@media (min-width: 1400px) {
+    .navigation-wrapper-right {
+        right: 20%;
+    }
+
+    .navigation-wrapper-left {
+        left: 20%;
+    }
+}

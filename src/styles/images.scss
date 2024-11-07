@@ -1,0 +1,23 @@
+.background-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100vw;
+    clip-path: circle(50% at center);
+    transition: opacity 1.5s ease;
+    opacity: 0;
+}
+
+@media (max-width: 767px) {
+    // In mobile take the longer edge to define the size
+    .background-image {
+        width: none;
+        height: 100vh;
+    }
+}
+
+// Animate showing the image
+.background-image.show {
+    opacity: 0.3;
+}
